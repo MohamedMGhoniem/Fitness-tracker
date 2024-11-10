@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --color-dark-1: #191602;
+  --color-dark-2: #484848;
+  --color-light-1: #f0f0f0;
+  --color-light-3: #9d9a9a;
+  --success-graident: 86deg, rgba(34, 193, 195, 1) 0%, rgba(62, 253, 45, 1) 100%;
+  --fail-graident: 86deg, rgba(195, 140, 34, 1) 0%, rgba(253, 45, 45, 1) 100%;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+}
+
+.main-section {
+  display: grid;
+  grid-template-columns: 50rem 1fr;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+#map {
+  background-color: #ccc;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-dark-1);
+  padding: 1.2rem 2.4rem;
+  height: 100vh;
+  position: relative;
+}
+
+.logo {
+  height: 12.9rem;
+  align-self: center;
+  margin-bottom: 4rem;
+}
+
+.message {
+  width: 100%;
+  padding: 1.2rem 2.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: blue;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transition: all 0.6s;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.message__title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.message__text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.message__complete {
+  background: linear-gradient(var(--success-graident));
+}
+
+.message__error {
+  background: linear-gradient(var(--fail-graident));
+}
+
+.message--hidden {
+  opacity: 0;
+  transform: translateY(-37%);
+  padding: 0;
+  height: 0;
+}
+
+.workouts {
+  list-style: none;
+  height: 77%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.workouts::-webkit-scrollbar {
+  width: 0;
+}
+
+.form {
+  width: 100%;
+  height: 9.25rem;
+  background-color: var(--color-dark-2);
+  padding: 1.5rem 2.75rem;
+  border-radius: 9px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 5rem;
+  transition: all 0.5s, transform 1ms;
+}
+
+.form.form__hidden {
+  padding: 0 2.25rem;
+  opacity: 0;
+  padding: 0;
+  height: 0;
+  margin-bottom: 0;
+  transform: translateY(-37%);
+  pointer-events: none;
+}
+
+.form__row {
+  display: flex;
+  align-items: center;
+}
+
+.form__label {
+  flex: 0 0 50%;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.form__input {
+  width: 100%;
+  padding: 0.3rem 1.1rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--color-light-3);
+  transition: all 0.2s;
+}
+
+.form__input:focus {
+  background-color: #87844c;
+}
+
+.form__input::placeholder {
+  color: #191602a0;
+}
+
+.form__btn {
+  display: none;
+}
+
+.workout {
+  background-color: var(--color-light-3);
+  border-radius: 5px;
+  padding: 1.5rem 2.25rem;
+  margin-bottom: 1.75rem;
+  cursor: pointer;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+}
+
+.workout.workout--complete {
+  background-color: transparent;
+  background-image: linear-gradient(var(--success-graident));
+}
+.workout.workout--failed {
+  background-color: transparent;
+  background-image: linear-gradient(var(--fail-graident));
+}
+
+.workout--complete .workout__btn {
+  background-color: rgb(0, 149, 0);
+  color: #fff;
+  pointer-events: none;
+  border: none;
+}
+
+.workout__title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  grid-column: 1 / -1;
+}
+
+.workout__btn {
+  font-size: 1.7rem;
+  font-weight: 500;
+  border-radius: 20px;
+  text-align: center;
+  padding: 0.2rem 1rem;
+  width: fit-content;
+  justify-self: center;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.workout__btn:active {
+  background-color: rgb(0, 149, 0);
+  color: #fff;
+}
+
+.workout__details {
+  display: flex;
+  align-items: baseline;
+}
+
+.workout__icon {
+  font-size: 1.8rem;
+  margin-right: 0.2rem;
+  height: 0.28rem;
+}
+
+.workout__value {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.workout__unit {
+  font-size: 1.1rem;
+  color: var(--color-dark-1);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.control__btn {
+  position: absolute;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 1.2rem 2.4rem;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.control__btn--show {
+  background-image: linear-gradient(var(--success-graident));
+  left: 0;
+}
+
+.control__btn--hide {
+  background-image: linear-gradient(var(--fail-graident));
+  right: 0;
+}
+
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-dark-1);
+  color: var(--color-light-1);
+  border-radius: 5px;
+  padding-right: 0.6rem;
+}
+
+.leaflet-popup .leaflet-popup-content {
+  font-size: 1.5rem;
+  margin: 0.4rem 0.8rem;
+}
+
+.leaflet-popup .leaflet-popup-tip {
+  background-color: var(--color-dark-1);
+}

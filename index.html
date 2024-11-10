@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
+    />
+    <script
+      defer
+      src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+    ></script>
+    <script
+      defer
+      src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"
+    ></script>
+
+    <script defer src="script.js"></script>
+    <title>Workout | all what you need</title>
+  </head>
+  <body>
+    <main class="main-section">
+      <aside class="sidebar">
+        <img src="media/logo.png" alt="Logo" class="logo" />
+
+        <div class="message message__complete message--hidden">
+          <h3 class="message__title">Workout Completed !</h3>
+          <p class="message__text">Congratulations! you're now fitter 🥳</p>
+        </div>
+        <div class="message message__error message--hidden">
+          <h3 class="message__title">Workout NOT Finished</h3>
+          <p class="message__text">Come on, you can do it 💪</p>
+        </div>
+        <ul class="workouts">
+          <form action="" class="form form__hidden">
+            <div class="form__row">
+              <label for="type" class="form__label">Type</label>
+              <select
+                name="Type"
+                id="Type"
+                class="form__input form__input--type"
+              >
+                <option value="running">Running</option>
+                <option value="cycling">Cycling</option>
+              </select>
+            </div>
+            <div class="form__row">
+              <label for="distance" class="form__label">Distance</label>
+              <input
+                type="text"
+                class="form__input form__input--distance"
+                id="distance"
+                placeholder="KM"
+              />
+            </div>
+            <div class="form__row">
+              <label for="direction" class="form__label">Direction</label>
+              <select
+                name="direction"
+                id="direction"
+                class="form__input form__input--direction"
+              >
+                <option value="0">North ⬆</option>
+                <option value="90">East ➡</option>
+                <option value="180">South ⬇</option>
+                <option value="270">West ⬅</option>
+              </select>
+            </div>
+            <div class="form__row">
+              <label for="duration" class="form__label">Duration</label>
+              <input
+                type="text"
+                class="form__input form__input--duration"
+                id="duration"
+                placeholder="Min/KM"
+              />
+            </div>
+            <button class="form__btn">OK</button>
+          </form>
+        </ul>
+        <button class="control__btn control__btn--show">
+          Show all workouts💪
+        </button>
+        <button class="control__btn control__btn--hide">
+          hide all workouts 🌪
+        </button>
+      </aside>
+      <div id="map"></div>
+    </main>
+  </body>
+</html>
