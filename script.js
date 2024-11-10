@@ -198,7 +198,7 @@ class App {
 
     // Fake data
     // mid {lat: 30.95800309529504, lng: 29.537807466695092}
-    // { lat: 30.976299206626877, lng: 29.57162476319354 } cost
+    // { lat: 30.976299206626877, lng: 29.57162476319354 } coast
     // { lat: 30.049259284104355, lng: 31.232843399047855 } cairo
     // ({ lat: this.#currposition.lat, lng: this.#currposition.lng } = {
     //   lat: 30.049259284104355,
